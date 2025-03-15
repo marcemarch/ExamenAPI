@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServidorAPI", "ServidorAPI\ServidorAPI.csproj", "{4BD836EC-50E7-439E-9D0A-F2925D722075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteAPI", "ClienteAPI\ClienteAPI.csproj", "{1E06803D-D723-4A58-B1B9-CE5B3149318E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{4BD836EC-50E7-439E-9D0A-F2925D722075}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BD836EC-50E7-439E-9D0A-F2925D722075}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BD836EC-50E7-439E-9D0A-F2925D722075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E06803D-D723-4A58-B1B9-CE5B3149318E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E06803D-D723-4A58-B1B9-CE5B3149318E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E06803D-D723-4A58-B1B9-CE5B3149318E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1E06803D-D723-4A58-B1B9-CE5B3149318E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E06803D-D723-4A58-B1B9-CE5B3149318E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E06803D-D723-4A58-B1B9-CE5B3149318E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
