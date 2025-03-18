@@ -18,8 +18,8 @@ namespace ClienteAPI.ConexionDatos
         public RestConexionDatos()
         {
             httpClient = new HttpClient();
-            dominio = "https://192.168.1.204:7124";
-            //dominio = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:7124" : "http://localhost:7124";
+            dominio = "http://192.168.1.204:5187";
+            //dominio = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5187" : "http://localhost:5187";
             url = $"{dominio}/api/plato";
             jsonSerializerOptions = new JsonSerializerOptions
             {
@@ -49,7 +49,7 @@ namespace ClienteAPI.ConexionDatos
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error: {ex.Message}");
+                Debug.WriteLine($"Error: {ex.Message}: {ex.InnerException}");
             }
         }
 
@@ -101,7 +101,7 @@ namespace ClienteAPI.ConexionDatos
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error: {ex.Message}");
+                Debug.WriteLine($"Error: {ex.Message}: {ex.InnerException}");
             }
             return platos;
         }

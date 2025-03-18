@@ -24,8 +24,8 @@ namespace ClienteAPI.Models
             }
         }
 
-        private int _Nombre;
-        public int Nombre
+        private string _Nombre;
+        public string Nombre
         {
             get
             {

@@ -1,24 +1,31 @@
-﻿namespace ClienteAPI
+﻿using ClienteAPI.ConexionDatos;
+using System.Diagnostics;
+
+namespace ClienteAPI
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
-        public MainPage()
+        private readonly IRestConexionDatos _restConexionDatos;
+        public MainPage(IRestConexionDatos restConexionDatos)
         {
             InitializeComponent();
+            _restConexionDatos = restConexionDatos;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        protected async override void OnAppearing()
         {
-            count++;
+            base.OnAppearing();
+            coleccionPlatosView.ItemsSource = await _restConexionDatos.GetPlatosAsync();
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        // Métodos evento
+        async void OnAddPlatoAsync(object sender, EventArgs e) { 
+            // Al darle clic esperamos ir a otra page donde ingresar datos de Plato
+            Debug.WriteLine("[EVENTO] Botón AddPlato clickeado.");
+        }
+        async void OnElementoCambiado(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.WriteLine("[EVENTO] Botón ElementoCambiado clickeado.");
         }
     }
 

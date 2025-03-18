@@ -16,9 +16,10 @@ namespace ClienteAPI
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             builder.Services.AddSingleton<IRestConexionDatos, RestConexionDatos>();
+            builder.Services.AddSingleton<MainPage>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
