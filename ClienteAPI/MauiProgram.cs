@@ -1,4 +1,5 @@
 ﻿using ClienteAPI.ConexionDatos;
+using ClienteAPI.Pages;
 using Microsoft.Extensions.Logging;
 
 namespace ClienteAPI
@@ -17,6 +18,7 @@ namespace ClienteAPI
                 });
             builder.Services.AddSingleton<IRestConexionDatos, RestConexionDatos>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<GestionPlatosPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();
