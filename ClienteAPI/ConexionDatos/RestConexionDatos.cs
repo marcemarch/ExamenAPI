@@ -15,9 +15,10 @@ namespace ClienteAPI.ConexionDatos
         private readonly string dominio;
         private readonly string url;
         private readonly JsonSerializerOptions jsonSerializerOptions;
-        public RestConexionDatos()
+        public RestConexionDatos(HttpClient httpClient)
         {
-            httpClient = new HttpClient();
+            // httpClient = new HttpClient();
+            this.httpClient = httpClient;
             dominio = "http://192.168.1.204:5187";
             //dominio = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5187" : "http://localhost:5187";
             url = $"{dominio}/api/plato";
