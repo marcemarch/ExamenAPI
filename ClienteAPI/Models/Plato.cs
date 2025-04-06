@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ClienteAPI.Models
@@ -10,6 +11,7 @@ namespace ClienteAPI.Models
     public class Plato : INotifyPropertyChanged
     {
         private int _Id;
+        [JsonPropertyName("id")]
         public int Id
         {
             get
@@ -25,6 +27,7 @@ namespace ClienteAPI.Models
         }
 
         private string _Nombre;
+        [JsonPropertyName("nombre")]
         public string Nombre
         {
             get
@@ -39,6 +42,31 @@ namespace ClienteAPI.Models
             }
         }
 
+        private double _Precio;
+        [JsonPropertyName("precio")]
+        public double Precio
+        {
+            get { return _Precio; }
+            set
+            {
+                if (_Precio == value) return;
+                _Precio = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Precio)));
+            }
+        }
+
+        private string _Ingredientes;
+        [JsonPropertyName("ingredientes")]
+        public string Ingredientes
+        {
+            get { return _Ingredientes; }
+            set
+            {
+                if (_Ingredientes == value) return;
+                _Ingredientes = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ingredientes)));
+            }
+        }
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

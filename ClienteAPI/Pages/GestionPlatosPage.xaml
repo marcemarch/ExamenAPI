@@ -17,6 +17,8 @@
             <TableRoot>
                 <TableSection Title="Acciones a realizar">
                     <EntryCell Text="{Binding Path=plato.Nombre}" Placeholder="NOMBRE"/>
+                    <EntryCell Text="{Binding Path=plato.Precio}" Placeholder="Precio" Keyboard="Numeric"/>
+                    <EntryCell Text="{Binding Path=plato.Ingredientes}" Placeholder="Ingredientes"/>
                 </TableSection>
             </TableRoot>
         </TableView>

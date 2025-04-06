@@ -3,7 +3,7 @@ using ClienteAPI.Models;
 using ClienteAPI.Pages;
 using System.Diagnostics;
 
-namespace ClienteAPI
+namespace ClienteAPI.Pages
 {
     public partial class MainPage : ContentPage
     {
@@ -17,7 +17,21 @@ namespace ClienteAPI
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            coleccionPlatosView.ItemsSource = await _restConexionDatos.GetPlatosAsync();
+            // coleccionPlatosView.ItemsSource = await _restConexionDatos.GetPlatosAsync();
+            var platos = await _restConexionDatos.GetPlatosAsync();
+            Debug.WriteLine($"*********> Platos obtenidos: {platos.Count}");  // Verificar la cantidad de platos obtenidos.
+
+            // Ordenar aleatoriamente
+            var random = new Random();
+            platos = platos.OrderBy(x => random.Next()).ToList();
+
+
+            coleccionPlatosView.ItemsSource = platos;
+
+            if (platos.Count == 0)
+            {
+                Debug.WriteLine("No se encontraron platos.");
+            }
         }
 
         // Métodos evento

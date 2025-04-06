@@ -12,6 +12,7 @@ namespace ClienteAPI.ConexionDatos
     public class RestConexionDatos : IRestConexionDatos
     {
         public readonly HttpClient httpClient;
+       
         private readonly string dominio;
         private readonly string url;
         private readonly JsonSerializerOptions jsonSerializerOptions;
@@ -19,9 +20,11 @@ namespace ClienteAPI.ConexionDatos
         {
             // httpClient = new HttpClient();
             this.httpClient = httpClient;
-            dominio = "http://192.168.1.204:5187";
+            this.httpClient.Timeout = TimeSpan.FromSeconds(180);
+            //dominio = "http://192.168.1.204:5187";
+            //dominio = "http://192.168.1.8:5187";
             //dominio = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5187" : "http://localhost:5187";
-            url = $"{dominio}/api/plato";
+            url = "https://tomcat.fullbyte.store/platos_api-1.0/api/platos";
             jsonSerializerOptions = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
@@ -93,6 +96,7 @@ namespace ClienteAPI.ConexionDatos
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine($"********> Respuesta JSON: {json}");
                     platos = JsonSerializer.Deserialize<List<Plato>>(json, jsonSerializerOptions);
                 }
                 else
